@@ -66,6 +66,7 @@ header {
     left: 0;
     z-index: 100;
     background: rgba(10, 10, 10, 0.5);
+    -webkit-backdrop-filter: blue(10px);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
 }
@@ -79,7 +80,7 @@ header nav { display: flex; justify-content: space-between; align-items: center;
 .contact-btn:hover { transform: scale(1.05); }
 
 #hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
-.hero-content { background: rgba(20, 20, 20, 0.5); border: 1px solid var(--border-color); padding: 3rem 4rem; border-radius: 12px; backdrop-filter: blur(5px); }
+.hero-content { background: rgba(20, 20, 20, 0.5); border: 1px solid var(--border-color); padding: 3rem 4rem; border-radius: 12px; -webkit-backdrop-filter: blue(5px); backdrop-filter: blur(5px); }
 .hero-headline { font-size: 3.5rem; color: var(--heading-color); margin-bottom: 1rem; }
 .hero-subheadline { font-size: 1.25rem; max-width: 500px; margin-bottom: 2rem; }
 .hero-socials a { color: var(--text-color); font-size: 1.5rem; margin: 0 15px; transition: color 0.3s ease, transform 0.3s ease; }

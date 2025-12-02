@@ -1,4 +1,4 @@
-<!-- ========== index.html (Final Version) ========== -->
+<!-- ========== index.html (Corrected) ========== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +13,8 @@
 </head>
 <body>
 
-    <!-- Particle background will be generated here by JavaScript -->
     <div id="tsparticles"></div>
-    <!-- The cursor spotlight will be added here by JavaScript -->
+    <div class="spotlight"></div>
 
     <header>
         <nav class="container">
@@ -38,13 +37,14 @@
                 <h1 class="hero-headline">Creative Mobile Developer</h1>
                 <p class="hero-subheadline">Building beautiful and innovative mobile experiences with Flutter.</p>
                 <div class="hero-socials">
-                    <a href="https://github.com/AmmarHammoud" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/ammar-hammoud" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <!-- CHANGED: Added rel="noopener noreferrer" -->
+                    <a href="https://github.com/AmmarHammoud" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/ammar-hammoud" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </section>
 
-        <!-- Note the "content-section" and "hidden" classes for scroll animations -->
+        <!-- ... rest of the HTML is unchanged ... -->
         <section id="about" class="container content-section hidden">
             <h2 class="section-title">About Me</h2>
             <p>A final-year IT Engineering student specializing in Software Engineering. With a passion for clean code and user-centric design, I have spent the last three years honing my skills in mobile development, primarily with the Flutter framework.</p>
@@ -98,9 +98,7 @@
         </div>
     </footer>
 
-    <!-- External library for particles -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-    <!-- Your custom script file -->
     <script src="script.js"></script>
 
 </body>
