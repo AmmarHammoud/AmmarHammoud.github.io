@@ -1,4 +1,4 @@
-<!-- ========== index.html (Modern Version) ========== -->
+<!-- ========== index.html (Final Version) ========== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Icon Library for social links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
-    <div class="animated-bg"></div>
+    <!-- Particle background will be generated here by JavaScript -->
+    <div id="tsparticles"></div>
+    <!-- The cursor spotlight will be added here by JavaScript -->
 
     <header>
         <nav class="container">
@@ -37,105 +38,70 @@
                 <h1 class="hero-headline">Creative Mobile Developer</h1>
                 <p class="hero-subheadline">Building beautiful and innovative mobile experiences with Flutter.</p>
                 <div class="hero-socials">
-                    <a href="https://github.com/AmmarHammoud" target="_blank" title="GitHub" rel="noopener"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/ammar-hammoud" target="_blank" title="LinkedIn" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/AmmarHammoud" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/ammar-hammoud" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="container content-section">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2 class="section-title">About Me</h2>
-                    <p>
-                        A final-year IT Engineering student specializing in Software Engineering. With a passion for clean code and user-centric design, I have spent the last three years honing my skills in mobile development, primarily with the Flutter framework.
-                    </p>
-                    <p>
-                        I thrive on pushing the boundaries of mobile applications by implementing unique, interactive features and staying ahead of emerging trends to deliver cutting-edge solutions.
-                    </p>
-                </div>
-                <div class="about-image">
-                    <!-- You can place a professional photo of yourself here -->
-                    <div class="photo-placeholder">
-                         <!-- <i class="fas fa-user"></i> -->
-                         <img src="logo.png" alt="Ammar Hammoud Logo" class="logo-img-about-me">
-                    </div>
-                </div>
-            </div>
+        <!-- Note the "content-section" and "hidden" classes for scroll animations -->
+        <section id="about" class="container content-section hidden">
+            <h2 class="section-title">About Me</h2>
+            <p>A final-year IT Engineering student specializing in Software Engineering. With a passion for clean code and user-centric design, I have spent the last three years honing my skills in mobile development, primarily with the Flutter framework.</p>
         </section>
         
-        <section id="experience" class="container content-section">
+        <section id="experience" class="container content-section hidden">
             <h2 class="section-title">Experience</h2>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content card">
-                        <h3>Mobile Application Developer (Intern)</h3>
-                        <p class="sub-heading">Prokoders | Aug 2024 – Oct 2024</p>
-                        <ul>
-                            <li>Designed and built an advanced mobile application that boosted user engagement.</li>
-                            <li>Streamlined development by working with a 10-person team to align on feature requirements.</li>
-                            <li>Integrated 3rd party libraries to expand app functionality and enhance user experience.</li>
-                        </ul>
-                    </div>
+                 <div class="timeline-item card">
+                    <h3>Mobile Application Developer (Intern)</h3>
+                    <p class="sub-heading">Prokoders | Aug 2024 – Oct 2024</p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content card">
-                        <h3>Tech Team Volunteer</h3>
-                        <p class="sub-heading">Kernel Crew | 1-year tenure</p>
-                        <ul>
-                            <li>Contributed to various university tech initiatives and projects.</li>
-                            <li>Collaborated with peers to organize workshops and technical events.</li>
-                            <li>Provided technical support and mentorship to junior members.</li>
-                        </ul>
-                    </div>
+                <div class="timeline-item card">
+                    <h3>Tech Team Volunteer</h3>
+                    <p class="sub-heading">Kernel Crew | 1-year tenure</p>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="container content-section">
+        <section id="projects" class="container content-section hidden">
             <h2 class="section-title">Featured Projects</h2>
             <div class="project-grid">
-                <!-- Project items will be injected here as cards -->
                  <div class="card">
                     <h3>City-to-City Delivery App</h3>
-                    <p class="sub-heading">Novel logistics model with real-time tracking and secure financial protocols.</p>
+                    <p>Novel logistics model with real-time tracking.</p>
                 </div>
                  <div class="card">
                     <h3>SimpleNoti - Flutter Package</h3>
-                    <p class="sub-heading">An easy-to-use API that improved notification efficiency for developers by 50%.</p>
+                    <p>Easy-to-use API improving notification efficiency by 50%.</p>
                 </div>
                  <div class="card">
                     <h3>Advanced Task Manager</h3>
-                    <p class="sub-heading">Boosted project management productivity by 40% with a seamless, user-friendly interface.</p>
+                    <p>Boosted project management productivity by 40%.</p>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="container content-section">
+        <section id="skills" class="container content-section hidden">
             <h2 class="section-title">Core Skills</h2>
             <div class="skills-list">
-                <span>Flutter</span>
-                <span>Dart</span>
-                <span>Firebase</span>
-                <span>BLoC & GetX</span>
-                <span>RESTful APIs</span>
-                <span>Git & GitHub</span>
-                <span>Clean Architecture</span>
-                <span>OOP</span>
-                <span>Python</span>
-                <span>JAVA</span>
+                <span>Flutter</span> <span>Dart</span> <span>Firebase</span> <span>BLoC & GetX</span> <span>RESTful APIs</span> <span>Git & GitHub</span> <span>Clean Architecture</span> <span>OOP</span> <span>Python</span> <span>JAVA</span>
             </div>
         </section>
     </main>
 
-    <footer id="contact">
+    <footer id="contact" class="content-section hidden">
         <div class="container">
             <h2>Get In Touch</h2>
-            <p>I'm currently seeking new opportunities. Feel free to reach out for collaborations or just a friendly chat!</p>
             <a href="mailto:st.ammar.hammoud@gmail.com" class="email-link">st.ammar.hammoud@gmail.com</a>
             <p class="copyright">&copy; 2024 Ammar Hammoud. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- External library for particles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <!-- Your custom script file -->
+    <script src="script.js"></script>
 
 </body>
 </html>
