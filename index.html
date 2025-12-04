@@ -1,13 +1,12 @@
-<!-- ========== index.html (Final Version) ========== -->
+<!-- ========== index.html (Final Version with Updated Title) ========== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ammar Hammoud | Software Engineer</title>
-    <!-- NEW: SEO Meta Tag for better search results -->
-    <meta name="description" content="The portfolio of Ammar Hammoud, a Software Engineer specializing in creating high-quality, user-centric mobile applications.">
-    <!-- NEW: Favicon link -->
+    <title>Ammar Hammoud | Software Engineer & Creative Designer</title>
+    <!-- CHANGED: SEO description updated for consistency -->
+    <meta name="description" content="The portfolio of Ammar Hammoud, a Software Engineer and Creative Designer specializing in building beautiful, functional, and user-centric digital experiences.">
     <link rel="icon" href="logo.png">
 
     <link rel="stylesheet" href="style.css">
@@ -30,24 +29,37 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#contact" class="contact-btn">Contact</a></li>
-                <!-- NEW: Download Resume Button -->
                 <li><a href="Ammar Hammoud.pdf" download class="resume-btn">Download Resume</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+         <!-- MODIFIED: The entire hero section is restructured -->
         <section id="hero">
             <div class="hero-content">
-                <h1 class="hero-headline">Innovative Software Engineer</h1>
-                <p class="hero-subheadline">Crafting high-quality and user-centric software solutions.</p>
-                <div class="hero-socials">
-                    <a href="https://github.com/AmmarHammoud" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/ammar-hammoud" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <h1 class="hero-headline">
+                    <span class="gradient-text">Software Engineer</span> & <span class="gradient-text">Creative Designer</span>
+                </h1>
+                <div class="hero-bottom-row">
+                    <p class="hero-subheadline">I design and build beautiful, user-centric digital products from concept to launch.</p>
+                    <div class="hero-socials">
+                        <a href="https://github.com/AmmarHammoud" target="_blank" rel="noopener noreferrer" title="GitHub">
+                            <i class="fab fa-github"></i>
+                            <span>AmmarHammoud</span>
+                        </a>
+                        <a href="https://linkedin.com/in/ammar-hammoud" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                            <span>ammar-hammoud</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- The rest of the file remains unchanged -->
 
         <section id="about" class="container content-section hidden">
             <div class="about-grid">
@@ -55,10 +67,8 @@
                     <h2 class="section-title">About Me</h2>
                     <p>A final-year IT Engineering student specializing in Software Engineering. With a passion for clean code and user-centric design, I have spent the last three years honing my skills in building robust applications, with a strong focus on mobile technologies and modern frameworks.</p>
                 </div>
-                <!-- NEW: Professional Headshot Placeholder -->
                 <div class="about-image">
                     <img src="me-with-cat.jpg" alt="Ammar Hammoud Headshot">
-                    <!-- Instructions: Replace 'your-photo.jpg' with an actual image file in your repository. -->
                 </div>
             </div>
         </section>
@@ -66,7 +76,6 @@
         <section id="projects" class="container content-section hidden">
             <h2 class="section-title">Featured Projects</h2>
             <div class="project-grid">
-                <!-- MODIFIED: Added data-project attribute to each card -->
                 <div class="card project-card" data-project="project-1">
                     <h3>City-to-City Delivery App</h3>
                     <p>Novel logistics model with real-time tracking.</p>
@@ -82,6 +91,33 @@
             </div>
         </section>
 
+        <section id="services" class="container content-section hidden">
+            <h2 class="section-title">Creative & Design Services</h2>
+            <div class="services-grid">
+                <div class="card service-card project-card" data-service="service-1">
+                    <i class="fas fa-book-open"></i>
+                    <div class="service-card-text">
+                        <h3>Book & Cover Design</h3>
+                        <p>Transform your manuscript into a beautifully designed book, complete with a stunning, marketable cover that captures attention.</p>
+                    </div>
+                </div>
+                <div class="card service-card project-card" data-service="service-2">
+                    <i class="fas fa-file-powerpoint"></i>
+                    <div class="service-card-text">
+                        <h3>Presentation Design</h3>
+                        <p>Elevate your message with professional, modern PowerPoint presentations that are clean, engaging, and aligned with your brand identity.</p>
+                    </div>
+                </div>
+                 <div class="card service-card project-card" data-service="service-3">
+                    <i class="fas fa-palette"></i>
+                    <div class="service-card-text">
+                        <h3>Visual Identity</h3>
+                        <p>Develop a cohesive and memorable visual brand, from logos to color palettes, ensuring a consistent and professional appearance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="skills" class="container content-section hidden">
             <h2 class="section-title">Core Skills</h2>
             <div class="skills-list">
@@ -89,7 +125,6 @@
             </div>
         </section>
 
-        <!-- NEW: "What I'm Learning" Section -->
         <!-- <section id="learning" class="container content-section hidden">
             <h2 class="section-title">Currently Exploring</h2>
             <div class="learning-list">
@@ -111,12 +146,10 @@
         </div>
     </footer>
 
-    <!-- NEW: Project Modals HTML Structure -->
     <div id="modal-overlay" class="hidden">
         <div id="modal-content">
             <button id="modal-close-btn">&times;</button>
             <div id="project-details-container">
-                <!-- Project 1 Details -->
                 <div id="project-1" class="project-detail hidden">
                     <h3>City-to-City Shipment Delivery App</h3>
                     <img src="project-image-1.jpg" alt="Project 1 Screenshot" class="project-modal-img">
@@ -126,7 +159,6 @@
                     <div class="skills-list"><span>Flutter</span> <span>Firebase</span> <span>Google Maps API</span> <span>BLoC</span></div>
                     <div class="modal-links"><a href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a> <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a></div>
                 </div>
-                <!-- Project 2 Details -->
                 <div id="project-2" class="project-detail hidden">
                     <h3>SimpleNoti - Flutter Package</h3>
                      <img src="project-image-2.jpg" alt="Project 2 Screenshot" class="project-modal-img">
@@ -136,7 +168,6 @@
                     <div class="skills-list"><span>Dart</span> <span>Flutter</span></div>
                     <div class="modal-links"><a href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a> <a href="#" target="_blank" rel="noopener noreferrer">View on pub.dev</a></div>
                 </div>
-                <!-- Project 3 Details -->
                 <div id="project-3" class="project-detail hidden">
                     <h3>Advanced Task Manager</h3>
                      <img src="project-image-3.jpg" alt="Project 3 Screenshot" class="project-modal-img">
@@ -145,6 +176,33 @@
                     <h4>Tech Stack:</h4>
                     <div class="skills-list"><span>Flutter</span> <span>Firebase Auth</span> <span>Firestore</span></div>
                     <div class="modal-links"><a href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a></div>
+                </div>
+                <div id="service-1" class="project-detail hidden">
+                    <h3>Book & Cover Design Examples</h3>
+                    <p>Here are some examples of previous book and cover designs.</p>
+                    <div class="gallery-grid">
+                        <img src="book-cover-1.jpg" alt="Book Cover Example 1">
+                        <img src="book-cover-2.jpg" alt="Book Cover Example 2">
+                        <img src="internal-page-1.jpg" alt="Internal Page Design">
+                    </div>
+                </div>
+                <div id="service-2" class="project-detail hidden">
+                    <h3>Presentation Design Examples</h3>
+                    <p>A showcase of clean, modern, and effective presentation slides.</p>
+                    <div class="gallery-grid">
+                        <img src="slide-1.jpg" alt="Presentation Slide Example 1">
+                        <img src="slide-2.jpg" alt="Presentation Slide Example 2">
+                        <img src="slide-3.jpg" alt="Presentation Slide Example 3">
+                    </div>
+                </div>
+                <div id="service-3" class="project-detail hidden">
+                    <h3>Visual Identity Examples</h3>
+                    <p>Previous work on logo design and brand identity development.</p>
+                    <div class="gallery-grid">
+                        <img src="logo-example-1.jpg" alt="Logo Example 1">
+                        <img src="logo-example-2.jpg" alt="Logo Example 2">
+                        <img src="brand-guide-1.jpg" alt="Brand Guide Example">
+                    </div>
                 </div>
             </div>
         </div>

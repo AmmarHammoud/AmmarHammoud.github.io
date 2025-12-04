@@ -1,4 +1,4 @@
-// ========== script.js (Final Version) ==========
+// ========== script.js (Final Integrated Version) ==========
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -37,39 +37,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
 
-
-    // --- NEW: MODAL LOGIC ---
-    const projectCards = document.querySelectorAll('.project-card');
+    // --- MODIFIED: MODAL LOGIC NOW HANDLES ALL CLICKABLE CARDS ---
+    const clickableCards = document.querySelectorAll('.project-card'); // This now correctly selects both project and service cards
     const modalOverlay = document.getElementById('modal-overlay');
     const modalCloseBtn = document.getElementById('modal-close-btn');
 
-    // Function to open the modal
-    const openModal = (projectId) => {
+    // Function to open the modal (no changes here)
+    const openModal = (modalId) => {
         // Hide all project details first
         document.querySelectorAll('.project-detail').forEach(detail => detail.classList.add('hidden'));
         
         // Show the specific project detail
-        const projectToShow = document.getElementById(projectId);
-        if (projectToShow) {
-            projectToShow.classList.remove('hidden');
+        const detailToShow = document.getElementById(modalId);
+        if (detailToShow) {
+            detailToShow.classList.remove('hidden');
             modalOverlay.classList.remove('hidden');
         }
     };
 
-    // Function to close the modal
+    // Function to close the modal (no changes here)
     const closeModal = () => {
         modalOverlay.classList.add('hidden');
     };
 
-    // Add event listeners to each project card
-    projectCards.forEach(card => {
+    // MODIFIED: Event listener logic is now more robust
+    clickableCards.forEach(card => {
         card.addEventListener('click', () => {
-            const projectId = card.getAttribute('data-project');
-            openModal(projectId);
+            // It now checks for EITHER a 'data-project' OR a 'data-service' attribute
+            const modalId = card.getAttribute('data-project') || card.getAttribute('data-service');
+            if (modalId) {
+                openModal(modalId);
+            }
         });
     });
 
-    // Add event listeners for closing the modal
+    // Event listeners for closing the modal (no changes here)
     modalCloseBtn.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', (event) => {
         // Only close if the click is on the overlay itself, not the content
