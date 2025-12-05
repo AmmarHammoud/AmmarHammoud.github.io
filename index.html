@@ -1,13 +1,11 @@
-<!-- ========== index.html (Final Version with Updated Title) ========== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ammar Hammoud | Software Engineer & Creative Designer</title>
-    <!-- CHANGED: SEO description updated for consistency -->
     <meta name="description" content="The portfolio of Ammar Hammoud, a Software Engineer and Creative Designer specializing in building beautiful, functional, and user-centric digital experiences.">
-    <link rel="icon" href="logo.png">
+    <link rel="icon" href="assets/personal/logo.png">
 
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +35,6 @@
     </header>
 
     <main>
-         <!-- MODIFIED: The entire hero section is restructured -->
         <section id="hero">
             <div class="hero-content">
                 <h1 class="hero-headline">
@@ -59,8 +56,6 @@
             </div>
         </section>
 
-        <!-- The rest of the file remains unchanged -->
-
         <section id="about" class="container content-section hidden">
             <div class="about-grid">
                 <div class="about-text">
@@ -74,7 +69,7 @@
         </section>
 
         <section id="projects" class="container content-section hidden">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title">Featured Software Projects</h2>
             <div class="project-grid">
                 <div class="card project-card" data-project="project-1">
                     <h3>City-to-City Delivery App</h3>
@@ -108,13 +103,13 @@
                         <p>Elevate your message with professional, modern PowerPoint presentations that are clean, engaging, and aligned with your brand identity.</p>
                     </div>
                 </div>
-                 <div class="card service-card project-card" data-service="service-3">
+                 <!-- <div class="card service-card project-card" data-service="service-3">
                     <i class="fas fa-palette"></i>
                     <div class="service-card-text">
                         <h3>Visual Identity</h3>
                         <p>Develop a cohesive and memorable visual brand, from logos to color palettes, ensuring a consistent and professional appearance.</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -150,6 +145,7 @@
         <div id="modal-content">
             <button id="modal-close-btn">&times;</button>
             <div id="project-details-container">
+                <!-- Software Project Modals -->
                 <div id="project-1" class="project-detail hidden">
                     <h3>City-to-City Shipment Delivery App</h3>
                     <img src="project-image-1.jpg" alt="Project 1 Screenshot" class="project-modal-img">
@@ -177,31 +173,112 @@
                     <div class="skills-list"><span>Flutter</span> <span>Firebase Auth</span> <span>Firestore</span></div>
                     <div class="modal-links"><a href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a></div>
                 </div>
+                
+                <!-- Design Service Modals -->
                 <div id="service-1" class="project-detail hidden">
-                    <h3>Book & Cover Design Examples</h3>
-                    <p>Here are some examples of previous book and cover designs.</p>
-                    <div class="gallery-grid">
-                        <img src="book-cover-1.jpg" alt="Book Cover Example 1">
-                        <img src="book-cover-2.jpg" alt="Book Cover Example 2">
-                        <img src="internal-page-1.jpg" alt="Internal Page Design">
+                    <h3>Book & Cover Design Projects</h3>
+                    <p>A showcase of previous book and cover designs. Select a project below to see its gallery.</p>
+                    <div class="tab-nav">
+                        <button class="tab-link active" data-tab="book-a">Nurikabe Game</button>
+                        <button class="tab-link" data-tab="book-b">Physical Study</button>
+                    </div>
+                    <div class="tab-content-container">
+                        <div id="book-a" class="tab-content active">
+                            <h4>Project: Nurikabe Game Report</h4>
+                            <!-- <p>Cover design for an epic science fiction novel, focusing on creating a sense of wonder and adventure.</p> -->
+                            <div class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img src="assets/design/books/nurikabe-cover.png" alt="Nurikabe Cover"></div>
+                                    <div class="carousel-item"><img src="assets/design/books/nurikabe-layout.png" alt="Nurikabe layout"></div>
+                                    <div class="carousel-item"><img src="assets/design/books/nurikabe-layout-2.png" alt="Nurikabe layout 2"></div>
+                                    <div class="carousel-item"><img src="assets/design/books/nurikabe-layout-3.png" alt="Nurikabe layout 3"></div>
+                                </div>
+                                <button class="carousel-control prev">&lt;</button>
+                                <button class="carousel-control next">&gt;</button>
+                            </div>
+                        </div>
+                        <div id="book-b" class="tab-content">
+                            <h4>Project: Physical Study of a boat</h4>
+                            <!-- <p>Internal page layout and design for a modern cookbook, prioritizing clean typography and appealing food photography.</p> -->
+                             <div class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img src="assets/design/books/phys-study-cover.png" alt="Physical Study Cover"></div>
+                                    <div class="carousel-item active"><img src="assets/design/books/phys-study-layout.png" alt="Physical Study layout"></div>
+                                    <div class="carousel-item active"><img src="assets/design/books/phys-study-layout-2.png" alt="Physical Study layout 2"></div>
+                                </div>
+                                <button class="carousel-control prev">&lt;</button>
+                                <button class="carousel-control next">&gt;</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="service-2" class="project-detail hidden">
-                    <h3>Presentation Design Examples</h3>
-                    <p>A showcase of clean, modern, and effective presentation slides.</p>
-                    <div class="gallery-grid">
-                        <img src="slide-1.jpg" alt="Presentation Slide Example 1">
-                        <img src="slide-2.jpg" alt="Presentation Slide Example 2">
-                        <img src="slide-3.jpg" alt="Presentation Slide Example 3">
+                    <h3>Presentation Design Projects</h3>
+                    <!-- <p>A showcase of clean, modern, and effective presentation slides. Select a project below to see its gallery.</p> -->
+                    <div class="tab-nav">
+                        <button class="tab-link active" data-tab="presentation-a">Probablities</button>
+                        <button class="tab-link" data-tab="presentation-b">Flutter API</button>
+                        <button class="tab-link" data-tab="presentation-c">Bad Habits</button>
+                    </div>
+                    <div class="tab-content-container">
+                        <div id="presentation-a" class="tab-content active">
+                            <h4>Project: Probabilities Workshop</h4>
+                            <!-- <p>A full presentation deck designed for a client's internal rebranding announcement, focusing on bold typography and a clean layout.</p> -->
+                            <div class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img src="assets/design/presentations/probabilities/basket-ball.png" alt="Probablities Slide"></div>
+                                    <div class="carousel-item"><img src="assets/design/presentations/probabilities/car.png" alt="Probablities Slide"></div>
+                                    <div class="carousel-item"><img src="assets/design/presentations/probabilities/find-area.png" alt="Probablities Slide"></div>
+                                </div>
+                                <button class="carousel-control prev">&lt;</button>
+                                <button class="carousel-control next">&gt;</button>
+                            </div>
+                        </div>
+                        <div id="presentation-b" class="tab-content">
+                            <h4>Project: Tech Conference Slides</h4>
+                            <!-- <p>Dynamic and engaging slides for a keynote speech at a tech conference, using modern gradients and visuals to hold audience attention.</p> -->
+                            <div class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img src="assets/design/presentations/flutter-related/what-is-api.png" alt="Flutter Slide"></div>
+                                    <div class="carousel-item active"><img src="assets/design/presentations/flutter-related/apis-and-uis.png" alt="Flutter Slide"></div>
+                                    <div class="carousel-item active"><img src="assets/design/presentations/flutter-related/json-example.png" alt="Flutter Slide"></div>
+                                </div>
+                                <button class="carousel-control prev">&lt;</button>
+                                <button class="carousel-control next">&gt;</button>
+                            </div>
+                        </div>
+                        <div id="presentation-c" class="tab-content">
+                            <h4>Project: Tech Conference Slides</h4>
+                            <!-- <p>Dynamic and engaging slides for a keynote speech at a tech conference, using modern gradients and visuals to hold audience attention.</p> -->
+                            <div class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img src="assets/design/presentations/bad-habits/health.png" alt="Bad Habits Slide"></div>
+                                    <div class="carousel-item active"><img src="assets/design/presentations/bad-habits/distraction.png" alt="Bad Habits Slide"></div>
+                                </div>
+                                <button class="carousel-control prev">&lt;</button>
+                                <button class="carousel-control next">&gt;</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="service-3" class="project-detail hidden">
-                    <h3>Visual Identity Examples</h3>
-                    <p>Previous work on logo design and brand identity development.</p>
-                    <div class="gallery-grid">
-                        <img src="logo-example-1.jpg" alt="Logo Example 1">
-                        <img src="logo-example-2.jpg" alt="Logo Example 2">
-                        <img src="brand-guide-1.jpg" alt="Brand Guide Example">
+                     <h3>Visual Identity Projects</h3>
+                     <!-- <p>Previous work on logo design and brand identity development. Select a project below to see its gallery.</p> -->
+                    <div class="tab-nav">
+                        <button class="tab-link active" data-tab="logo-a">Tech Startup Logo</button>
+                    </div>
+                     <div class="tab-content-container">
+                        <div id="logo-a" class="tab-content active">
+                            <h4>Project: Tech Startup Logo</h4>
+                            <p>Logo and brand guide for an early-stage tech startup, designed to be modern, scalable, and memorable.</p>
+                            <div class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img src="logo-example-1.jpg" alt="Startup Logo"></div>
+                                </div>
+                                <button class="carousel-control prev">&lt;</button>
+                                <button class="carousel-control next">&gt;</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

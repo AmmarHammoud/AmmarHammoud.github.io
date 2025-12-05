@@ -1,4 +1,3 @@
-/* ========== style.css (Final Version) ========== */
 :root {
     --bg-color: #0A0A0A;
     --card-color: #141414;
@@ -19,7 +18,6 @@ body {
     line-height: 1.7;
 }
 
-/* NEW: Custom Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-color); }
 ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
@@ -47,20 +45,15 @@ header {
 }
 header nav { display: flex; justify-content: space-between; align-items: center; height: 70px; }
 .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--heading-color); font-weight: 600; }
-.logo-img { height: 40px; filter: brightness(0) invert(1); }
-.nav-links { display: flex; list-style: none; align-items: center; gap: 15px; } /* Reduced gap for new button */
+.logo-img { height: 40px; filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)); }
+.nav-links { display: flex; list-style: none; align-items: center; gap: 15px; }
 .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 600; transition: color 0.3s ease; padding: 8px 12px; border-radius: 6px; }
 .nav-links a:hover { color: var(--heading-color); }
 .contact-btn { background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); color: white !important; }
 .contact-btn:hover { transform: scale(1.05); }
-
-/* NEW: Resume Download Button Style */
 .resume-btn { border: 1px solid var(--accent-blue); color: var(--accent-blue) !important; }
 .resume-btn:hover { background-color: rgba(59, 130, 246, 0.1); }
 
-/* ========== style.css (Updated Hero Block) ========== */
-
-/* --- Hero Section --- */
 #hero {
     height: 100vh;
     display: flex;
@@ -68,7 +61,6 @@ header nav { display: flex; justify-content: space-between; align-items: center;
     justify-content: center;
     padding: 0 2rem;
 }
-
 .hero-content {
     background: rgba(20, 20, 20, 0.5);
     border: 1px solid var(--border-color);
@@ -77,147 +69,100 @@ header nav { display: flex; justify-content: space-between; align-items: center;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     width: 100%;
-    max-width: 900px; /* Increased max-width for the new layout */
+    max-width: 900px;
 }
-
 .hero-headline {
-    font-size: 3.0rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: var(--heading-color);
-    margin: 0; /* Removed bottom margin */
+    margin: 0;
     text-align: left;
 }
-
-/* NEW: This is the style for the gradient text */
 .hero-headline .gradient-text {
-    /* Create the gradient background */
     background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-    
-    /* Clip the background to the text shape */
     -webkit-background-clip: text;
     background-clip: text;
-    
-    /* Make the text color transparent to show the background */
     -webkit-text-fill-color: transparent;
-    color: transparent; /* Fallback for other browsers */
+    color: transparent;
 }
-
-/* NEW: This row contains the sub-headline and socials */
 .hero-bottom-row {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Aligns items to the bottom */
+    align-items: flex-end;
     margin-top: 3rem;
     gap: 2rem;
 }
-
 .hero-subheadline {
     font-size: 1.2rem;
     text-align: left;
     margin: 0;
-    max-width: 450px; /* Prevents it from getting too long */
+    max-width: 450px;
 }
-
-/* MODIFIED: Socials are now a vertical list */
 .hero-socials {
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Space between the social links */
-    flex-shrink: 0; /* Prevents this column from shrinking */
+    gap: 1rem;
+    flex-shrink: 0;
 }
-
 .hero-socials a {
     display: flex;
     align-items: center;
-    gap: 0.75rem; /* Space between icon and text */
+    gap: 0.75rem;
     color: var(--text-color);
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
-.hero-socials a:hover {
-    color: var(--heading-color);
-}
-
-.hero-socials i {
-    font-size: 1.5rem; /* Icon size */
-}
-
+.hero-socials a:hover { color: var(--heading-color); }
+.hero-socials i { font-size: 1.5rem; }
 
 .content-section { padding: 80px 0; }
-.section-title { font-size: 2.5rem; text-align: left; margin-bottom: 1rem; }
+.section-title { font-size: 2.5rem; text-align: left; margin-bottom: 4rem; }
 
 .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center; }
-
-/* NEW: Headshot Image Style */
 .about-image img { width: 100%; max-width: 250px; border-radius: 10%; border: 2px solid var(--border-color); aspect-ratio: 1 / 1; object-fit: cover; }
 
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 .card { background-color: var(--card-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
 .card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
-.project-card { cursor: pointer; } /* Make project cards clickable */
-.skills-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
-.skills-list span { background-color: var(--card-color); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: 6px; font-weight: 600; color: var(--heading-color); }
+.project-card { cursor: pointer; }
 
-
-/* --- NEW: SERVICES SECTION STYLES --- */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 .service-card {
+    /* Revert to a centered text alignment */
     text-align: left;
+    cursor: pointer;
 }
 .service-card h3 {
+    /* Restore the top margin to create space below the icon */
     margin: 1rem 0 0.5rem 0;
 }
 .service-card i {
-    cursor: pointer;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    /* flex-shrink: 0; */
     margin-bottom: 1rem;
-    /* This creates the gradient effect on the icon */
     background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
     -webkit-background-clip: text;
     -moz-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
 }
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-.gallery-grid img {
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-/* --- END OF NEW STYLES --- */
 
-.learning-list { max-width: 600px; margin: 0 auto; text-align: center; }
+.skills-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.skills-list span { background-color: var(--card-color); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: 6px; font-weight: 600; color: var(--heading-color); }
 
-/* NEW: "What I'm Learning" Section Styles */
 .learning-list { max-width: 600px; margin: 0 auto; text-align: center; }
 .learning-list ul { list-style: none; margin-top: 1rem; }
-.learning-list li {
-    display: inline-block;
-    background: var(--card-color);
-    border: 1px solid var(--border-color);
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 6px;
-    font-weight: 600;
-}
+.learning-list li { display: inline-block; background: var(--card-color); border: 1px solid var(--border-color); padding: 10px 15px; margin: 5px; border-radius: 6px; font-weight: 600; }
 
 footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border-color); }
 footer .email-link { font-size: 1.1rem; font-weight: 600; color: var(--heading-color); text-decoration: none; }
 
-/* --- NEW: MODAL STYLES --- */
 #modal-overlay {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
@@ -255,12 +200,72 @@ footer .email-link { font-size: 1.1rem; font-weight: 600; color: var(--heading-c
 #modal-content h4 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--accent-blue); }
 .modal-links { margin-top: 2rem; }
 .modal-links a {
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-weight: 600;
-    margin-right: 1.5rem;
-    border: 1px solid var(--accent-blue);
-    padding: 10px 15px;
-    border-radius: 6px;
+    color: var(--accent-blue); text-decoration: none; font-weight: 600;
+    margin-right: 1.5rem; border: 1px solid var(--accent-blue);
+    padding: 10px 15px; border-radius: 6px;
 }
 .modal-links a:hover { background: rgba(59, 130, 246, 0.1); }
+
+.tab-nav {
+    display: flex; gap: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-top: 1.5rem; margin-bottom: 1.5rem;
+}
+.tab-link {
+    padding: 10px 15px; background: none; border: none;
+    color: var(--text-color); cursor: pointer;
+    font-size: 1rem; font-weight: 600;
+    position: relative; top: 2px;
+    border-bottom: 2px solid transparent;
+}
+.tab-link:hover { color: var(--heading-color); }
+.tab-link.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.carousel {
+    position: relative; margin-top: 1.5rem;
+    overflow: hidden; border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+.carousel-inner { display: flex; transition: transform 0.5s ease-in-out; }
+.carousel-item {
+    flex: 0 0 100%;
+    min-width: 100%;
+    
+    /* NEW: Set a consistent height for all slides */
+    height: 400px; /* You can adjust this value if you like */
+
+    /* NEW: Set a background color for the letterbox effect */
+    background-color: var(--bg-color); 
+    
+    /* NEW: Center the image within the container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item img {
+    /* MODIFIED: The image should fill the container for object-fit to work */
+    width: 100%;
+    height: 100%;
+
+    /* NEW: This is the magic property! */
+    /* It scales the image to fit without stretching or squishing it. */
+    object-fit: contain; 
+}
+.carousel-control {
+    position: absolute; top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(10, 10, 10, 0.5);
+    border: 1px solid var(--border-color);
+    color: var(--heading-color);
+    font-size: 1.5rem; font-weight: bold;
+    cursor: pointer; width: 40px; height: 40px;
+    border-radius: 50%; z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+    transition: background-color 0.3s ease;
+}
+.carousel-control:hover { background-color: rgba(10, 10, 10, 0.8); }
+.carousel-control.prev { left: 10px; }
+.carousel-control.next { right: 10px; }

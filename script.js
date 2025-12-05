@@ -1,8 +1,6 @@
-// ========== script.js (Final Integrated Version) ==========
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- tsParticles BACKGROUND (No Changes) ---
+    // --- tsParticles, Cursor, and Scroll Reveal (No Changes) ---
     tsParticles.load("tsparticles", {
         fpsLimit: 60,
         interactivity: { events: { onHover: { enable: true, mode: "repulse" }, resize: true }, modes: { repulse: { distance: 100, duration: 0.4 } } },
@@ -18,66 +16,112 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         detectRetina: true
     });
-
-    // --- CURSOR SPOTLIGHT (No Changes) ---
     const spotlight = document.querySelector('.spotlight');
     window.addEventListener('mousemove', (e) => {
         spotlight.style.left = `${e.clientX}px`;
         spotlight.style.top = `${e.clientY}px`;
     });
-
-    // --- SCROLL REVEAL (No Changes) ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('show');
         });
     }, { threshold: 0.1 });
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
 
-    // --- MODIFIED: MODAL LOGIC NOW HANDLES ALL CLICKABLE CARDS ---
-    const clickableCards = document.querySelectorAll('.project-card'); // This now correctly selects both project and service cards
+
+    // --- MODAL, TABS, AND CAROUSEL LOGIC ---
+    const clickableCards = document.querySelectorAll('.project-card');
     const modalOverlay = document.getElementById('modal-overlay');
     const modalCloseBtn = document.getElementById('modal-close-btn');
 
-    // Function to open the modal (no changes here)
-    const openModal = (modalId) => {
-        // Hide all project details first
-        document.querySelectorAll('.project-detail').forEach(detail => detail.classList.add('hidden'));
+    // Function to initialize a carousel
+    const initCarousel = (carouselElement) => {
+        const carouselInner = carouselElement.querySelector('.carousel-inner');
+        if (!carouselInner) return;
+        const items = carouselElement.querySelectorAll('.carousel-item');
+        const nextBtn = carouselElement.querySelector('.next');
+        const prevBtn = carouselElement.querySelector('.prev');
+        let currentIndex = 0;
+
+        const showSlide = (index) => {
+            carouselInner.style.transform = `translateX(-${index * 100}%)`;
+        };
         
-        // Show the specific project detail
+        if(nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % items.length;
+                showSlide(currentIndex);
+            });
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                showSlide(currentIndex);
+            });
+        }
+        showSlide(0);
+    };
+
+    // Function to initialize tabs within a modal
+    const initTabs = (modalContent) => {
+        const tabNav = modalContent.querySelector('.tab-nav');
+        if (!tabNav) return;
+
+        const tabLinks = tabNav.querySelectorAll('.tab-link');
+        const tabContents = modalContent.querySelectorAll('.tab-content');
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                tabLinks.forEach(l => l.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                link.classList.add('active');
+                const tabId = link.getAttribute('data-tab');
+                const activeContent = document.getElementById(tabId);
+                activeContent.classList.add('active');
+
+                const carousel = activeContent.querySelector('.carousel');
+                if (carousel) {
+                    initCarousel(carousel);
+                }
+            });
+        });
+    };
+
+    // Main function to open the modal
+    const openModal = (modalId) => {
+        document.querySelectorAll('.project-detail').forEach(detail => detail.classList.add('hidden'));
         const detailToShow = document.getElementById(modalId);
+
         if (detailToShow) {
             detailToShow.classList.remove('hidden');
             modalOverlay.classList.remove('hidden');
+
+            initTabs(detailToShow);
+            const defaultActiveContent = detailToShow.querySelector('.tab-content.active');
+            if (defaultActiveContent) {
+                 const carousel = defaultActiveContent.querySelector('.carousel');
+                if (carousel) {
+                    initCarousel(carousel);
+                }
+            } else {
+                const carousel = detailToShow.querySelector('.carousel');
+                if (carousel) {
+                    initCarousel(carousel);
+                }
+            }
         }
     };
 
-    // Function to close the modal (no changes here)
-    const closeModal = () => {
-        modalOverlay.classList.add('hidden');
-    };
-
-    // MODIFIED: Event listener logic is now more robust
+    // --- Event Listeners ---
+    const closeModal = () => modalOverlay.classList.add('hidden');
     clickableCards.forEach(card => {
         card.addEventListener('click', () => {
-            // It now checks for EITHER a 'data-project' OR a 'data-service' attribute
             const modalId = card.getAttribute('data-project') || card.getAttribute('data-service');
-            if (modalId) {
-                openModal(modalId);
-            }
+            if (modalId) openModal(modalId);
         });
     });
-
-    // Event listeners for closing the modal (no changes here)
     modalCloseBtn.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', (event) => {
-        // Only close if the click is on the overlay itself, not the content
-        if (event.target === modalOverlay) {
-            closeModal();
-        }
+        if (event.target === modalOverlay) closeModal();
     });
-
 });
