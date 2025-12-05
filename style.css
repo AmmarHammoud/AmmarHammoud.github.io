@@ -44,8 +44,17 @@ header {
     border-bottom: 1px solid var(--border-color);
 }
 header nav { display: flex; justify-content: space-between; align-items: center; height: 70px; }
-.logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--heading-color); font-weight: 600; }
-.logo-img { height: 40px; filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)); }
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--heading-color);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
 .nav-links { display: flex; list-style: none; align-items: center; gap: 15px; }
 .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 600; transition: color 0.3s ease; padding: 8px 12px; border-radius: 6px; }
 .nav-links a:hover { color: var(--heading-color); }
@@ -69,22 +78,47 @@ header nav { display: flex; justify-content: space-between; align-items: center;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
 }
+
+/* CORRECTED: The CSS now matches the HTML structure */
+.hero-title-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.hero-logo-img {
+    height: 300px;
+    filter: contrast(130%);
+}
+
 .hero-headline {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     font-weight: 700;
     color: var(--heading-color);
     margin: 0;
-    text-align: left;
+    text-align: center;
+    line-height: 1.2;
+    /* white-space: nowrap;  */
 }
-.hero-headline .gradient-text {
+.hero-headline .gradient-text-software-engineer {
     background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
+
+.hero-headline .gradient-text-creative-designer {
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
 .hero-bottom-row {
     display: flex;
     justify-content: space-between;
@@ -117,155 +151,73 @@ header nav { display: flex; justify-content: space-between; align-items: center;
 .hero-socials a:hover { color: var(--heading-color); }
 .hero-socials i { font-size: 1.5rem; }
 
+@media (max-width: 900px) {
+    .hero-title-group {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .hero-headline {
+        font-size: 2.5rem; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+     .hero-headline {
+        font-size: 2.2rem;
+    }
+    .hero-bottom-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+}
+
 .content-section { padding: 80px 0; }
 .section-title { font-size: 2.5rem; text-align: left; margin-bottom: 4rem; }
-
 .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center; }
 .about-image img { width: 100%; max-width: 250px; border-radius: 10%; border: 2px solid var(--border-color); aspect-ratio: 1 / 1; object-fit: cover; }
-
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-.card { background-color: var(--card-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-.card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
-.project-card { cursor: pointer; }
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-.service-card {
-    /* Revert to a centered text alignment */
-    text-align: left;
-    cursor: pointer;
-}
-.service-card h3 {
-    /* Restore the top margin to create space below the icon */
-    margin: 1rem 0 0.5rem 0;
-}
-.service-card i {
-    font-size: 2.5rem;
-    /* flex-shrink: 0; */
-    margin-bottom: 1rem;
-    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-}
-
+.project-grid, .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.card { position: relative; border-radius: 10px; border: 1px solid var(--border-color); overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; transition: border-color 0.3s ease; }
+.card:hover { border-color: var(--accent-blue); }
+.card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.card:hover img { transform: scale(1.05); }
+.card-title-container { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; color: white; z-index: 2; background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 20%, transparent); display: flex; justify-content: space-between; align-items: center; }
+.card-title-container h3 { margin: 0; font-size: 1.25rem; color: var(--heading-color); }
+.view-prompt { font-weight: 400; color: var(--accent-blue); opacity: 0; transition: opacity 0.3s ease; }
+.card:hover .view-prompt { opacity: 1; }
 .skills-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
 .skills-list span { background-color: var(--card-color); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: 6px; font-weight: 600; color: var(--heading-color); }
-
 .learning-list { max-width: 600px; margin: 0 auto; text-align: center; }
 .learning-list ul { list-style: none; margin-top: 1rem; }
 .learning-list li { display: inline-block; background: var(--card-color); border: 1px solid var(--border-color); padding: 10px 15px; margin: 5px; border-radius: 6px; font-weight: 600; }
-
 footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border-color); }
 footer .email-link { font-size: 1.1rem; font-weight: 600; color: var(--heading-color); text-decoration: none; }
-
-#modal-overlay {
-    position: fixed; top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    z-index: 200;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.3s ease;
-}
+#modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); z-index: 200; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 #modal-overlay:not(.hidden) { opacity: 1; pointer-events: all; }
-#modal-content {
-    background: var(--card-color);
-    padding: 2rem;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    width: 90%; max-width: 700px;
-    max-height: 80vh; overflow-y: auto;
-    position: relative;
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
-}
+#modal-content { background: var(--card-color); padding: 2rem; border-radius: 10px; border: 1px solid var(--border-color); width: 90%; max-width: 700px; max-height: 80vh; overflow-y: auto; position: relative; transform: scale(0.95); transition: transform 0.3s ease; }
 #modal-overlay:not(.hidden) #modal-content { transform: scale(1); }
-#modal-close-btn {
-    position: absolute; top: 1rem; right: 1rem;
-    background: none; border: none;
-    color: var(--heading-color);
-    font-size: 2rem; line-height: 1;
-    cursor: pointer;
-}
+#modal-close-btn { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--heading-color); font-size: 2rem; line-height: 1; cursor: pointer; }
 .project-detail.hidden { display: none; }
 .project-modal-img { width: 100%; border-radius: 8px; margin-bottom: 1rem; }
 #modal-content h3 { font-size: 2rem; margin-bottom: 1rem; }
 #modal-content h4 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--accent-blue); }
-.modal-links { margin-top: 2rem; }
-.modal-links a {
-    color: var(--accent-blue); text-decoration: none; font-weight: 600;
-    margin-right: 1.5rem; border: 1px solid var(--accent-blue);
-    padding: 10px 15px; border-radius: 6px;
-}
-.modal-links a:hover { background: rgba(59, 130, 246, 0.1); }
-
-.tab-nav {
-    display: flex; gap: 0.5rem;
-    border-bottom: 2px solid var(--border-color);
-    margin-top: 1.5rem; margin-bottom: 1.5rem;
-}
-.tab-link {
-    padding: 10px 15px; background: none; border: none;
-    color: var(--text-color); cursor: pointer;
-    font-size: 1rem; font-weight: 600;
-    position: relative; top: 2px;
-    border-bottom: 2px solid transparent;
-}
+.modal-links { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+.modal-links a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 10px 18px; border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+.modal-links a:hover { border-color: var(--accent-blue); color: var(--accent-blue); background-color: rgba(59, 130, 246, 0.1); }
+.modal-links a i { font-size: 1.1rem; }
+.tab-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; border-bottom: 2px solid var(--border-color); margin-top: 1.5rem; margin-bottom: 1.5rem; }
+.tab-link { padding: 10px 15px; background: none; border: none; color: var(--text-color); cursor: pointer; font-size: 1rem; font-weight: 600; position: relative; top: 2px; border-bottom: 2px solid transparent; }
 .tab-link:hover { color: var(--heading-color); }
 .tab-link.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
 .tab-content { display: none; }
 .tab-content.active { display: block; }
-
-.carousel {
-    position: relative; margin-top: 1.5rem;
-    overflow: hidden; border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
+.carousel { position: relative; margin-top: 1.5rem; overflow: hidden; border-radius: 8px; border: 1px solid var(--border-color); }
 .carousel-inner { display: flex; transition: transform 0.5s ease-in-out; }
-.carousel-item {
-    flex: 0 0 100%;
-    min-width: 100%;
-    
-    /* NEW: Set a consistent height for all slides */
-    height: 400px; /* You can adjust this value if you like */
-
-    /* NEW: Set a background color for the letterbox effect */
-    background-color: var(--bg-color); 
-    
-    /* NEW: Center the image within the container */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-item img {
-    /* MODIFIED: The image should fill the container for object-fit to work */
-    width: 100%;
-    height: 100%;
-
-    /* NEW: This is the magic property! */
-    /* It scales the image to fit without stretching or squishing it. */
-    object-fit: contain; 
-}
-.carousel-control {
-    position: absolute; top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(10, 10, 10, 0.5);
-    border: 1px solid var(--border-color);
-    color: var(--heading-color);
-    font-size: 1.5rem; font-weight: bold;
-    cursor: pointer; width: 40px; height: 40px;
-    border-radius: 50%; z-index: 10;
-    display: flex; align-items: center; justify-content: center;
-    transition: background-color 0.3s ease;
-}
+.carousel-item { flex: 0 0 100%; min-width: 100%; height: 400px; background-color: var(--bg-color); display: flex; align-items: center; justify-content: center; }
+.carousel-item img { width: 100%; height: 100%; object-fit: contain; }
+.carousel-control { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(10, 10, 10, 0.5); border: 1px solid var(--border-color); color: var(--heading-color); font-size: 1.5rem; font-weight: bold; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; z-index: 10; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s ease; }
 .carousel-control:hover { background-color: rgba(10, 10, 10, 0.8); }
 .carousel-control.prev { left: 10px; }
 .carousel-control.next { right: 10px; }
